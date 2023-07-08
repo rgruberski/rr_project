@@ -2,6 +2,8 @@
 
 Simple project from the Robot Operating System 2 training by <https://reflectrobotics.com/>
 
+The project is a simple go-to-goal functionality implementation made in ROS2. The goals are generated in a random way. The turtle follows all newly appeared goals. The goal disappears after the turtle approaches it in a short distance defined in the code.
+
 ## How to run it
 
 Run the following commands in your terminal. The code was checked on the Linux Ubuntu system only.
