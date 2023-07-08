@@ -8,12 +8,11 @@
 #include "turtlesim/srv/kill.hpp"
 
 #define DISTANCE_TOLERANCE 0.1
-#define ANGLE_TOLERANCE 0.01
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 
-enum TurtleState { IDLE, SPAWNING, SPAWNED };
+enum TurtleState { IDLE, SPAWNING, SPAWNED, KILLING };
 
 class RRProject : public rclcpp::Node
 {
@@ -49,7 +48,6 @@ public:
     }
 private:
 
-    //std::mt19937 rng(std::random_device());
     std::default_random_engine generator;
     std::uniform_int_distribution<int> dist;
     std::uniform_int_distribution<int> dist_theta;
@@ -89,11 +87,7 @@ private:
             if (euclidean_distance(target_pose) > DISTANCE_TOLERANCE)
             {
                 speed.linear.x = linear_vel(target_pose);
-
-                if (abs(steering_angle(target_pose)) > ANGLE_TOLERANCE)
-                {
-                    speed.angular.z = angular_vel(target_pose);
-                }
+                speed.angular.z = angular_vel(target_pose);
             }
             else
             {
@@ -106,8 +100,6 @@ private:
 
     void spawn_turtle() 
     {
-        std::cout << std::endl << std::endl;
-
         state = SPAWNING;
 
         target_pose->x = dist(generator);
@@ -139,6 +131,8 @@ private:
 
     void kill_turtle() 
     {
+        state = KILLING;
+
         auto kill_request = std::make_shared<turtlesim::srv::Kill::Request>();
 
         kill_request->name = "target";
@@ -157,7 +151,7 @@ private:
         return sqrt(pow(target_pose->x - pose->x, 2) + pow(target_pose->y - pose->y, 2));
     }
 
-    float linear_vel(turtlesim::msg::Pose::SharedPtr target_pose, float speed = 1.5) 
+    float linear_vel(turtlesim::msg::Pose::SharedPtr target_pose, float speed = 2.5) 
     {
         return speed * euclidean_distance(target_pose);
     }
@@ -167,9 +161,16 @@ private:
         return atan2(target_pose->y - pose->y, target_pose->x - pose->x);
     }
 
-    float angular_vel(turtlesim::msg::Pose::SharedPtr target_pose, float speed = 6.0)
+    float angular_vel(turtlesim::msg::Pose::SharedPtr target_pose, float speed = 10.0)
     {
-        return speed * (steering_angle(target_pose) - pose->theta);
+        float angle_diff = steering_angle(target_pose) - pose->theta;
+
+        if (abs(angle_diff) > M_PI) 
+        {
+            angle_diff += (angle_diff > M_PI) ? 2 * -M_PI : 2 * M_PI;
+        }
+
+        return speed * angle_diff;
     }
 };
 
