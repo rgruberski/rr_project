@@ -1,5 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target rr_project[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/rr_project.dir/src/rr_project.cpp.o[0m
-gmake[2]: *** [CMakeFiles/rr_project.dir/build.make:76: CMakeFiles/rr_project.dir/src/rr_project.cpp.o] Interrupt
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/rr_project.dir/all] Interrupt
-gmake: *** [Makefile:146: all] Interrupt

@@ -1,9 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target rr_project[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/rr_project.dir/src/rr_project.cpp.o[0m
-[01m[K/home/robert/Workspaces/ROS/reflect_ws/src/rr_project/src/rr_project.cpp:[m[K In member function ‘[01m[Kfloat RRProject::angular_vel(turtlesim::msg::Pose_<std::allocator<void> >::SharedPtr, float)[m[K’:
-[01m[K/home/robert/Workspaces/ROS/reflect_ws/src/rr_project/src/rr_project.cpp:169:61:[m[K [01;31m[Kerror: [m[Kinvalid type argument of unary ‘[01m[K*[m[K’ (have ‘[01m[Kdouble[m[K’)
-  169 |             angle_diff += (angle_diff > M_PI) ? 2 * -M_PI : [01;31m[K*[m[K M_PI;
-      |                                                             [01;31m[K^[m[K
-gmake[2]: *** [CMakeFiles/rr_project.dir/build.make:76: CMakeFiles/rr_project.dir/src/rr_project.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/rr_project.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

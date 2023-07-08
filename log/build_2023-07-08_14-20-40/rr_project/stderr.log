@@ -1,7 +1,0 @@
-[01m[K/home/robert/Workspaces/ROS/reflect_ws/src/rr_project/src/rr_project.cpp:[m[K In member function ‘[01m[Kvoid RRProject::spawn_timer_callback()[m[K’:
-[01m[K/home/robert/Workspaces/ROS/reflect_ws/src/rr_project/src/rr_project.cpp:97:23:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kk_linear[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
-   97 |                 float [01;35m[Kk_linear[m[K = 1.5;
-      |                       [01;35m[K^~~~~~~~[m[K
-[01m[K/home/robert/Workspaces/ROS/reflect_ws/src/rr_project/src/rr_project.cpp:93:19:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdistance_tolerance[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
-   93 |             float [01;35m[Kdistance_tolerance[m[K = 0.5;
-      |                   [01;35m[K^~~~~~~~~~~~~~~~~~[m[K

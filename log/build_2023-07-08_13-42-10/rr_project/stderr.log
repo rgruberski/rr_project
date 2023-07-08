@@ -1,3 +1,0 @@
-gmake[2]: *** [CMakeFiles/rr_project.dir/build.make:76: CMakeFiles/rr_project.dir/src/rr_project.cpp.o] Interrupt
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/rr_project.dir/all] Interrupt
-gmake: *** [Makefile:146: all] Interrupt
